@@ -3,7 +3,7 @@
 
 ## GitHub Repository
 
--   Find the code and more on GitHub: [04-section-database Repository](https://github.com/victor90braz/04-section-database.git)
+-   Find the code and more on GitHub: [05-section Repository](https://github.com/victor90braz/05-section.git)
 
 ## Introduction
 
@@ -50,42 +50,6 @@ To create a new user and add it to the database, you can use Laravel's Tinker. F
 php artisan tinker
 ```
 
-Now, let's go through the steps in the Tinker session.
-
-1. Create a new user instance:
-
-```php
-$user = new User();
-```
-
-2. Set the user's name, email, and password:
-
-```php
-$user->name = 'mario';
-$user->email = 'mario@gmail.com';
-$user->password = bcrypt('!mario');
-```
-
-3. Save the user to the database:
-
-```php
-$user->save();
-```
-
-4. Retrieve the user from the database (for example, by ID):
-
-```php
-$user->find(1);
-```
-
-## Posts
-
-This sequence of commands creates a new user with the provided information and stores it in your database.
-
-## Creating a New Category and Adding It to the Database Using Tinker
-
-To create a new category and add it to the database, use the following commands:
-
 1. Create a migration for the "categories" table:
 
 ```bash
@@ -98,42 +62,11 @@ php artisan make:migration create_categories_table
 php artisan make:model Category
 ```
 
-3. Define the database schema for the "categories" table in the generated migration file.
-
 4. Run the migration to create the "categories" table:
 
 ```bash
 php artisan migrate
 ```
-
-5. Start a Tinker session:
-
-```bash
-php artisan tinker
-```
-
-6. Create a new category instance:
-
-```php
-$category = new \App\Models\Category;
-```
-
-7. Set the category's name and slug:
-
-```php
-$category->name = 'Personal';
-$category->slug = 'personal';
-```
-
-8. Save the category to the database:
-
-```php
-$category->save();
-```
-
-## Retrieving Data with Eloquent
-
-To retrieve data with Eloquent and access relationships, you can use the following commands in Tinker:
 
 1. Retrieve a post with its associated category:
 
@@ -145,40 +78,6 @@ $post = \App\Models\Post::with('category')->first();
 
 ```php
 $post->category->name;
-```
-
-## HTML Structure with Inline Styles
-
-Here's a refactored HTML structure with inline styles:
-
-```html
-<div
-    class="container"
-    style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;"
->
-    <nav>
-        <ul style="list-style: none;">
-            <li
-                style="font-weight: bold; color: #007bff; text-decoration: underline;"
-            >
-                {{ $post->category->name }}
-            </li>
-        </ul>
-    </nav>
-
-    <article style="margin-top: 20px; padding: 10px; background-color: #fff;">
-        <h1 style="font-size: 24px; margin-bottom: 10px;">
-            {{ $post->title }}
-        </h1>
-        <div>{!! $post->body !!}</div>
-    </article>
-    <a
-        href="/"
-        class="btn-go-back"
-        style="display: inline-block; margin-top: 20px; text-decoration: underline; color: #007bff;"
-        >Go Back</a
-    >
-</div>
 ```
 
 ## Working with the Database
