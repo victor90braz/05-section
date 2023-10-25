@@ -21,7 +21,7 @@
                     @click="show = !show"
                 >
 
-                    Categories
+                    {{ isset($currentCategory) ? ucwords($currentCategory->name) : ucwords('Categories')}}
 
                     <svg
                         class="transform -rotate-90 absolute pointer-events-none"
