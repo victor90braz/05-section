@@ -6,17 +6,14 @@
         @if ($posts->count())
             <x-post-feature-card :post="$posts[0]" />
 
-            <div class="lg:grid lg:grid-cols-2">
-                @foreach ($posts->skip(1) as $post)
-                    <x-post-card :post="$post" />
-                @endforeach
-            </div>
+            @if ($posts->count() > 1)
+                <div class="lg:grid lg:grid-cols-2">
+                    @foreach ($posts->skip(1) as $post)
+                        <x-post-card :post="$post" />
+                    @endforeach
+                </div>
+            @endif
 
-            <div class="lg:grid lg:grid-cols-3">
-                @foreach ($posts->skip(1) as $post)
-                    <x-post-card :post="$post" />
-                @endforeach
-            </div>
         @else
             <p>No posts yet. Please check back later.</p>
         @endif
