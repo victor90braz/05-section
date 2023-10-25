@@ -1,4 +1,4 @@
-@props('[posts]')
+@props(['posts'])
 
 <x-post-feature-card :post="$posts[0]" />
 
