@@ -8,7 +8,8 @@ use App\Models\User;
 Route::get('/', function () {
 
     return view('posts', [
-        'posts' => Post::latest()->get()
+        'posts' => Post::latest()->get(),
+        'categories' => Category::all()
     ]);
 
 });
@@ -16,7 +17,7 @@ Route::get('/', function () {
 Route::get('posts/{post:slug}', function (Post $post) {
 
     return view('post', [
-        'post' => $post
+        'post' => $post,
     ]);
 
 });
