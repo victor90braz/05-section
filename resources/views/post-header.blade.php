@@ -38,9 +38,7 @@
                     </button>
                 </x-slot>
 
-                <a href="/" class="block text-left px-3 text-sm leading-6 hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white">
-                    All
-                </a>
+                <x-dropdown-item>All</x-dropdown-item>
 
                 @foreach ($categories as $category)
                     <a href="/categories/{{ $category->slug }}"
