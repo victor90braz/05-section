@@ -38,7 +38,7 @@
                     </button>
                 </x-slot>
 
-                <x-dropdown-item>All</x-dropdown-item>
+                <x-dropdown-item href="/" >All</x-dropdown-item>
 
                 @foreach ($categories as $category)
                     <a href="/categories/{{ $category->slug }}"
